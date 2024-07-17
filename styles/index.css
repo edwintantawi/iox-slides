@@ -1,0 +1,45 @@
+.gemini-text {
+  background-color: #2b90b6;
+  background-image: linear-gradient(
+    45deg,
+    #217bfe 10%,
+    #078efb 20%,
+    #a190ff,
+    #bd99fe
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.firebase-text {
+  background-color: #ff9100;
+  background-image: linear-gradient(45deg, #dd2c00 10%, #ff9100, #ffc400);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.topremit-text {
+  background-color: #18a4e9;
+  background-image: linear-gradient(45deg, #18a4e9, #06e4ae);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.mikroskil-text {
+  background-color: #2a408c;
+  background-image: linear-gradient(45deg, #e0272c 10%, #2a408c, #2a408c);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
