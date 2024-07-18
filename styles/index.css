@@ -24,6 +24,16 @@
   -moz-text-fill-color: transparent;
 }
 
+.flutter-text {
+  background-color: #1fbcfd;
+  background-image: linear-gradient(45deg, #07599c 10%, #1fbcfd, #40d0fd);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
 .firebase-text {
   background-color: #ff9100;
   background-image: linear-gradient(45deg, #dd2c00 10%, #ff9100, #ffc400);

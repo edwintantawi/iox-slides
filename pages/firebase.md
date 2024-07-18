@@ -68,6 +68,3 @@ layout: section
 ---
 
 # Calls to the <span class="title-vertex-ai-1 gemini-text">Vertex AI</span> Gemini API directly from your app using the <span class="title-vertex-ai-2 gemini-text">Vertex AI</span> for <span class="title firebase-text">Firebase</span> SDKs.
-
----
-
