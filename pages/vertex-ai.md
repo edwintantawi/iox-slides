@@ -1,28 +1,48 @@
 ---
 layout: section
+transition: view-transition
 ---
+
+<style>
+  .title {
+    view-transition-name: title;
+  }
+</style>
 
 <h1 class="flex flex-items-center gap-2">
   <img src="/vertex-ai.svg" class="size-24"/>
-  Vertex AI
+  <span class="title">Vertex AI</span>
 </h1>
 
-<!-- <style>
+---
+layout: section
+---
 
-</style>
+<h1><span class="title vertex-ai-text">Vertex AI</span> is a Fully-Managed, Unified AI Development Platform For Building And Using
+  <v-switch>
+    <template #0 >
+    <span>
+      Generative AI
+    </span>
+    </template>
+    <template #1 >
+    <h1 v-motion
+      :duration="800"
+      :initial="{ opacity: 0 }"
+      :click-1="{ opacity: 1 }">
+    <span class="gemini-text">
+      Gemini AI
+    </span>
+    </h1>
+    </template>
+  </v-switch>
+</h1>
 
-<h1 class="title flex flex-items-center gap-2">
-  <img src="/vertex-ai.svg" class="size-16"/>
-  Vertex AI
-</h1> -->
+---
+layout: section
+class: text-center
+---
 
-<!--
-<v-clicks>
+<h2 class="text-slate mb-2">Bruhhh Dealing With Frontend Is Already Very Annoying...</h2>
 
-- Vertex AI is a fully-managed
-- Unified AI development platform for building and using generative AI
-- Access and utilize Vertex AI Studio, Agent Builder, and 150+ foundation model
-- The Vertex AI Gemini API gives you access to the latest generative AI models from Google
-
-</v-clicks>
--->
+# Now, I Don't Want To Deal With Servers Anymore 😣

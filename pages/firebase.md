@@ -29,12 +29,45 @@ transition: view-transition
 </h1>
 
 ---
-layout: fact
+layout: section
+transition: view-transition
 ---
 
+# <span class="title firebase-text">Firebase</span> Accelerate The Development With Managed Infrastructure That Can _Scale Globally_, Powered By <span class="vertex-ai-text">Google Cloud</span>
+
+---
+layout: section
+transition: view-transition
+---
+
+# <span class="title firebase-text">Firebase</span> Let Developer Focus On What Matters Most And _Get To Market Quickly_
+
+---
+layout: fact
+transition: view-transition
+---
+
+<style>
+  .title-vertex-ai-1 {
+    view-transition-name: title-vertex-ai-1;
+  }
+  .title-vertex-ai-2 {
+    view-transition-name: title-vertex-ai-2;
+  }
+</style>
+
 <h1>
-  <span class="gemini-text">Vertex AI</span> For 
+  <span class="relative"><span class="title-vertex-ai-1 gemini-text">Vertex AI</span> <span class="title-vertex-ai-2 gemini-text absolute left-0">Vertex AI</span></span> For 
 </h1>
 <h1 class="flex items-center justify-center gap-2">
-  <img src="/firebase.svg" class="image size-24"/><span class="title firebase-text">Firebase</span>
+  <img src="/firebase.svg" class="image size-24"/><span class="title title-firebase firebase-text">Firebase</span>
 </h1>
+
+---
+layout: section
+---
+
+# Calls to the <span class="title-vertex-ai-1 gemini-text">Vertex AI</span> Gemini API directly from your app using the <span class="title-vertex-ai-2 gemini-text">Vertex AI</span> for <span class="title firebase-text">Firebase</span> SDKs.
+
+---
+

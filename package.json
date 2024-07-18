@@ -6,7 +6,8 @@
     "build": "slidev build",
     "dev": "slidev --open",
     "export": "slidev export",
-    "format": "slidev format slides.md"
+    "format": "slidev format slides.md",
+    "remote": "slidev --remote=123"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.16",

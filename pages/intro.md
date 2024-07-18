@@ -3,14 +3,24 @@ layout: fact
 ---
 
 <v-switch>
-  <template #1>
+  <template #0>
     <h1
+      v-motion
+      :duration="500"
+      :initial="{ scale: 0 }"
+      :enter="{ scale: 1 }"
+    >
+      Hai...
+    </h1>
+  </template>
+  <template #1>
+    <h1 
       v-motion
       :duration="500"
       :initial="{ scale: 0 }"
       :click-1="{ scale: 1 }"
     >
-      Hai...
+      Apa Kabar?
     </h1>
   </template>
   <template #2>
@@ -19,16 +29,6 @@ layout: fact
       :duration="500"
       :initial="{ scale: 0 }"
       :click-2="{ scale: 1 }"
-    >
-      Apa Kabar?
-    </h1>
-  </template>
-  <template #3>
-    <h1 
-      v-motion
-      :duration="500"
-      :initial="{ scale: 0 }"
-      :click-3="{ scale: 1 }"
     >
       Bohong!!!
     </h1>
@@ -156,8 +156,8 @@ class: flex flex-col justify-center
 layout: statement
 ---
 
-<h2>Ex-1st Google Developer Student Clubs Lead 2023</h2>
-<h1 class="mt-4 mikroskil-text">Universitas Mikroskil</h1>
+<h2>Ex-1st GDSC Lead 2023</h2>
+<GDSCMikroskil class="h-16 mt-6"/>
 
 ---
 layout: statement
