@@ -60,7 +60,7 @@ transition: view-transition
 </style>
 
 <h1>
-  <span class="relative"><span class="title-vertex-ai-1 gemini-text">Vertex AI</span> <span class="title-vertex-ai-2 gemini-text absolute left-0">Vertex AI</span></span> For 
+  <span class="relative"><span class="title-vertex-ai-1 vertex-ai-text">Vertex AI</span> <span class="title-vertex-ai-2 vertex-ai-text absolute left-0">Vertex AI</span></span> For 
 </h1>
 <h1 class="flex items-center justify-center gap-2">
   <img src="/firebase.svg" class="image size-24"/><span class="title title-firebase firebase-text">Firebase</span>
@@ -71,7 +71,14 @@ layout: section
 transition: view-transition
 ---
 
-# Calls to the <span class="title-vertex-ai-1 gemini-text">Vertex AI</span> Gemini API directly from your app using the <span class="title-vertex-ai-2 gemini-text">Vertex AI</span> for <span class="title firebase-text">Firebase</span> SDKs.
+# Calls to the <span class="title-vertex-ai-1 vertex-ai-text">Vertex AI</span> Gemini API directly from your app using the <span class="title-vertex-ai-2 vertex-ai-text">Vertex AI</span> for <span class="title firebase-text">Firebase</span> SDKs.
+
+---
+layout: section
+transition: view-transition
+---
+
+# Allow Us To Call The <span class="title-vertex-ai-1 vertex-ai-text">Vertex AI</span> <span class="gemini-text">Gemini API</span> Directly From Our Apps, _Removing The Need To Set Up A Backend_ With <span class="title title-firebase firebase-text">Firebase</span>
 
 ---
 layout: statement
