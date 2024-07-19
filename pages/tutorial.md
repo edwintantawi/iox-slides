@@ -300,12 +300,12 @@ final response = await model.generateContent(
 );
 ```
 
-```dart {8-10,12|12-13|*}
+```dart {8-10,12|5,12-13|*}
 import 'package:firebase_vertexai/firebase_vertexai.dart';
 import 'package:myapp/model.dart';
 
 final prompt = [
-  Content.text(inputController.text)
+  Content.text("Recommendations for places that must be visited in Medan")
 ]
 
 final response = await model.generateContent(
@@ -324,49 +324,229 @@ layout: default
 # Generate Text From <span class="gemini-text">Multimodal</span> Prompts
 
 ````md magic-move {lines: true}
-```dart {1|1,3}
+```dart {3,6|1,8|3,8-9}
+import 'dart:io';
+
 import 'package:firebase_vertexai/firebase_vertexai.dart';
 import 'package:myapp/model.dart';
 
 final prompt = TextPart("What's in the picture?");
 
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
 ```
 
-```dart {3-5}
+```dart {4,11}
+import 'dart:io';
+
 import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
 
-final prompt = [
-  Content.text("Show me the best place for a holiday in Medan")
-]
-```
+final prompt = TextPart("What's in the picture?");
 
-```dart {3-5}
-import 'package:firebase_vertexai/firebase_vertexai.dart';
-
-final prompt = [
-  Content.text(inputController.text)
-]
-```
-
-```dart {7}
-import 'package:firebase_vertexai/firebase_vertexai.dart';
-
-final prompt = [
-  Content.text(inputController.text)
-]
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
 
 final response = await model.generateContent();
 ```
 
-```dart {3-5,7-9|*}
-import 'package:firebase_vertexai/firebase_vertexai.dart';
+```dart {12}
+import 'dart:io';
 
-final prompt = [
-  Content.text(inputController.text)
-]
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
 
 final response = await model.generateContent(
-  prompt
+  [Content.multi()]
 );
+```
+
+```dart {6,9,12|11-13}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart])]
+);
+```
+
+```dart {11-13,15|*}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart])]
+);
+
+print(response.text);
+```
+
+```dart {10-11}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+// Want to add multiple image, no problem...
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart])]
+);
+
+print(response.text);
+```
+
+```dart {11,14}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+// Want to add multiple images, no problem...
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart, imagePart2])]
+);
+
+print(response.text);
+```
+
+```dart {6|6,13-15,17|*}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's different between these pictures?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+// Want to add multiple images?, no problem...
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart, imagePart2])]
+);
+
+print(response.text);
+```
+
+```dart {11-12}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's different between these pictures?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+// Want to add other file format?, no problem...
+// Supported input files varies by model and can include images, PDFs, video, and audio
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart, imagePart2])]
+);
+
+print(response.text);
+```
+
+```dart {11-14}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's different between these pictures?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+// Want to add other file format?, no problem...
+// Supported input files varies by model and can include images, PDFs, video, and audio
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, imagePart, imagePart2])]
+);
+
+print(response.text);
+```
+
+```dart {11-14,17}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's different between these pictures?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+// Want to add other file format?, no problem...
+// Supported input files varies by model and can include images, PDFs, video, and audio
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoPart])]
+);
+
+print(response.text);
+```
+
+```dart {6,11-14,17}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the video?");
+
+final image = await File('image-somewhere.jpg').readAsBytes();
+final imagePart = DataPart('image/jpeg', image);
+final imagePart2 = DataPart('image/jpeg', otherImageFromeSomeWhere);
+// Want to add other file format?, no problem...
+// Supported input files varies by model and can include images, PDFs, video, and audio
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoPart])]
+);
+
+print(response.text);
 ```
 ````
