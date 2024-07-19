@@ -48,6 +48,9 @@ transition: view-transition
 ---
 
 <style>
+  .title {
+    view-transition-name: title;
+  }
   .title-vertex-ai-1 {
     view-transition-name: title-vertex-ai-1;
   }
@@ -65,6 +68,15 @@ transition: view-transition
 
 ---
 layout: section
+transition: view-transition
 ---
 
 # Calls to the <span class="title-vertex-ai-1 gemini-text">Vertex AI</span> Gemini API directly from your app using the <span class="title-vertex-ai-2 gemini-text">Vertex AI</span> for <span class="title firebase-text">Firebase</span> SDKs.
+
+---
+layout: statement
+---
+
+# <span class="title-vertex-ai-1 gemini-text">Vertex AI</span> For <span class="title firebase-text">Firebase</span><br/> Is In Preview!
+
+<p class="text-slate">which means that the product is not subject to any SLA or deprecation policy<br/>and could change in backwards-incompatible ways.</p>
