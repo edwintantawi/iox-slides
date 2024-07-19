@@ -636,3 +636,58 @@ final response = await model.generateContent(
 print(response.text);
 ```
 ````
+
+---
+layout: default
+---
+
+# <span class="gemini-text">Streaming</span> The Results
+
+````md magic-move {lines: true}
+```dart {*}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text("Recommendations for places that must be visited in Medan")
+]
+
+final response = await model.generateContent(
+  prompt
+);
+
+print(response.text)
+```
+
+```dart {8}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text("Recommendations for places that must be visited in Medan")
+]
+
+final response = await model.generateContentStream(
+  prompt
+);
+
+print(response.text)
+```
+
+```dart {12-14|11}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text("Recommendations for places that must be visited in Medan")
+]
+
+final response = await model.generateContentStream(
+  prompt
+);
+
+await for (final chunk in response) {
+  print(chunk.text);
+}
+```
+````
