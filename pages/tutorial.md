@@ -691,3 +691,11 @@ await for (final chunk in response) {
 }
 ```
 ````
+
+---
+layout: section
+---
+
+# Build <span class="firebase-text">Multi-Turn Conversations</span> (Chat) With The <span class="gemini-text">Gemini API</span>
+
+<p class="pt-4 text-slate"><a href="https://firebase.google.com/docs/vertex-ai/chat?platform=flutter">firebase.google.com/docs/vertex-ai/chat</a></p>

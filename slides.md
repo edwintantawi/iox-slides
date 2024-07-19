@@ -45,3 +45,7 @@ src: ./pages/firebase.md
 ---
 src: ./pages/tutorial.md
 ---
+
+---
+src: ./pages/end.md
+---
