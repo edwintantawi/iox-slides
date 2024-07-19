@@ -117,7 +117,7 @@ layout: fact
       :initial="{ opacity: 0 }"
       :click-5="{ opacity: 1 }"
     >
-      ASI<span class="color-slate opacity-10">X</span>K 😁
+      ASI<span class="color-slate opacity-30">X</span>K 😁
     </h1>
   </template>
 </v-switch>
