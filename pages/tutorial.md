@@ -1,4 +1,9 @@
 ---
+layout: image
+image: "/cat-loading.jpg"
+---
+
+---
 layout: fact
 ---
 
@@ -545,6 +550,87 @@ final videoPart = DataPart('video/mp4', video);
 
 final response = await model.generateContent(
   [Content.multi([prompt, videoPart])]
+);
+
+print(response.text);
+```
+
+```dart {10}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the video?");
+
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+// For Vertex AI for Firebase SDKs, the maximum request size is 20 MB
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoPart])]
+);
+
+print(response.text);
+```
+
+```dart {10-13}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the video?");
+
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+// For Vertex AI for Firebase SDKs, the maximum request size is 20 MB
+// SOLUTION: Use a Cloud Storage for Firebase URL to include the file in your multimodal request.
+final storageUrl = 'gs://$bucket/$fullPath';
+final videoFromStoragePart = FileData('video/mp4', storageUrl);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoPart])]
+);
+
+print(response.text);
+```
+
+```dart {10-13,16}
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the video?");
+
+final video = await File('video.mp4').readAsBytes();
+final videoPart = DataPart('video/mp4', video);
+// For Vertex AI for Firebase SDKs, the maximum request size is 20 MB
+// SOLUTION: Use a Cloud Storage for Firebase URL to include the file in your multimodal request.
+final storageUrl = 'gs://$bucket/$fullPath';
+final videoFromStoragePart = FileData('video/mp4', storageUrl);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoFromStoragePart])]
+);
+
+print(response.text);
+```
+
+```dart
+import 'dart:io';
+
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the video?");
+
+final storageUrl = 'gs://$bucket/$fullPath';
+final videoFromStoragePart = FileData('video/mp4', storageUrl);
+
+final response = await model.generateContent(
+  [Content.multi([prompt, videoFromStoragePart])]
 );
 
 print(response.text);
