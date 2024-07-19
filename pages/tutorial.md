@@ -126,7 +126,29 @@ class MyApp extends StatelessWidget {
 
 ```
 
-```dart {*|2,7|1,8-10|*}
+```dart {1,6-7}
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:myapp/screens/home_screen.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(/**... */)
+  }
+}
+```
+
+```dart {3,9|8-10|*}
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/firebase_options.dart';
@@ -292,5 +314,59 @@ final response = await model.generateContent(
 
 print(response.text)
 // Output: Must-Visit Places in Medan:\nFor Cultural Immersions:\n\n-Maimun Palace: Witness the grandeur of Med...
+```
+````
+
+---
+layout: default
+---
+
+# Generate Text From <span class="gemini-text">Multimodal</span> Prompts
+
+````md magic-move {lines: true}
+```dart {1|1,3}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = TextPart("What's in the picture?");
+
+```
+
+```dart {3-5}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text("Show me the best place for a holiday in Medan")
+]
+```
+
+```dart {3-5}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+```
+
+```dart {7}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+
+final response = await model.generateContent();
+```
+
+```dart {3-5,7-9|*}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+
+final response = await model.generateContent(
+  prompt
+);
 ```
 ````
