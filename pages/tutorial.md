@@ -192,11 +192,105 @@ layout: default
 - Make sure that your development environment: `Dart 3.2.0+`
 - Upgrade your project to use the [Blaze pay-as-you-go pricing plan](https://console.firebase.google.com/project/_/overview?purchaseBillingPlan=metered)
 - Enable the following two APIs for your project:
-  - `aiplatform.googleapis.com`
-  - `firebaseml.googleapis.com`
+  - [aiplatform.googleapis.com](https://console.cloud.google.com/apis/library/aiplatform.googleapis.com?project=_)
+  - [firebaseml.googleapis.com](https://console.cloud.google.com/apis/library/firebaseml.googleapis.com?project=_)
 - Add the Flutter Firebase Vertex AI plugin:
   ```bash
   flutter-app$ flutter pub add firebase_vertexai
   ```
+- Enable Vertex AI for Firebase on Firebase console
 
 </v-clicks>
+
+---
+layout: default
+---
+
+# Initialize The <span class="vertex-ai-text">Vertex AI</span> Service And The <span class="gemini-text">Model</span>
+
+````md magic-move {lines: true}
+```dart {1|1,3}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final model = FirebaseVertexAI.instance.generativeModel();
+```
+
+```dart {4|*}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final model = FirebaseVertexAI.instance.generativeModel(
+  model: 'gemini-1.5-flash'
+);
+```
+````
+
+---
+layout: default
+---
+
+# <span class="gemini-text">Generate</span> Text From Text-Only Prompts
+
+````md magic-move {lines: true}
+```dart {1|1,3}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [Content.text()]
+
+```
+
+```dart {3-5}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text("Recommendations for places that must be visited in Medan")
+]
+```
+
+```dart {3-5}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+```
+
+```dart {2,8}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+
+final response = await model.generateContent();
+```
+
+```dart {4-6,8-10}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+
+final response = await model.generateContent(
+  prompt
+);
+```
+
+```dart {8-10,12|12-13|*}
+import 'package:firebase_vertexai/firebase_vertexai.dart';
+import 'package:myapp/model.dart';
+
+final prompt = [
+  Content.text(inputController.text)
+]
+
+final response = await model.generateContent(
+  prompt
+);
+
+print(response.text)
+// Output: Must-Visit Places in Medan:\nFor Cultural Immersions:\n\n-Maimun Palace: Witness the grandeur of Med...
+```
+````
