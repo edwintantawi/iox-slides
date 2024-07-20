@@ -35,6 +35,8 @@ transition: view-transition
 layout: default
 ---
 
+<ZoomBar/>
+
 # Install <span class="firebase-text">Firebase</span> CLI
 
 <v-clicks>
@@ -57,6 +59,8 @@ layout: default
 layout: default
 ---
 
+<ZoomBar/>
+
 # Configure Your Apps To Use <span class="firebase-text">Firebase</span>
 
 <v-clicks depth="2">
@@ -74,6 +78,8 @@ layout: default
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 # Initialize <span class="firebase-text">Firebase</span> In Your App
 
@@ -108,6 +114,8 @@ layout: default
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 ## main.dart
 
@@ -184,6 +192,8 @@ layout: default
 transition: view-transition
 ---
 
+<ZoomBar/>
+
 # Add <span class="title-firebase firebase-text">Firebase</span> Plugins
 
 <v-clicks>
@@ -206,11 +216,15 @@ transition: view-transition
 layout: statement
 ---
 
+<ZoomBar/>
+
 # Get started with the <span class="gemini-text">Gemini API</span> using the <span class="vertex-ai-text">Vertex AI</span> for <span class="title-firebase firebase-text">Firebase</span>
 
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 # <span class="firebase-text">Prerequisites</span>
 
@@ -233,6 +247,8 @@ layout: default
 layout: default
 ---
 
+<ZoomBar/>
+
 # Initialize The <span class="vertex-ai-text">Vertex AI</span> Service And The <span class="gemini-text">Model</span>
 
 ````md magic-move {lines: true}
@@ -254,6 +270,8 @@ final model = FirebaseVertexAI.instance.generativeModel(
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 # <span class="gemini-text">Generate</span> Text From Text-Only Prompts
 
@@ -325,6 +343,8 @@ print(response.text)
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 # Generate Text From <span class="gemini-text">Multimodal</span> Prompts
 
@@ -640,6 +660,8 @@ print(response.text);
 ---
 layout: default
 ---
+
+<ZoomBar/>
 
 # <span class="gemini-text">Streaming</span> The Results
 
